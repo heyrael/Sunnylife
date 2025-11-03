@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Table Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <h1>JSON Table Viewer</h1>
+        <p class="tagline">
+          Paste JSON below to render it as a filterable-friendly table in your
+          browser.
+        </p>
+      </header>
+      <section class="input-panel">
+        <label class="panel-label" for="json-input">JSON input</label>
+        <textarea
+          id="json-input"
+          class="json-input"
+          placeholder="Paste or type JSON here..."
+          spellcheck="false"
+          aria-describedby="input-hint"
+        ></textarea>
+        <p id="input-hint" class="hint">
+          The viewer works best with an array of objects. Nested values are
+          displayed as compact JSON strings.
+        </p>
+        <div class="button-row">
+          <button id="render-btn" class="primary">Render table</button>
+          <button id="sample-btn" class="ghost">Load sample data</button>
+          <button id="clear-btn" class="ghost">Clear</button>
+        </div>
+        <p id="error-message" class="message error" role="alert" aria-live="polite"></p>
+        <p id="data-summary" class="message success" aria-live="polite"></p>
+      </section>
+      <section class="table-panel" aria-live="polite">
+        <div id="table-container" class="table-container" tabindex="0"></div>
+      </section>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
